@@ -1,0 +1,87 @@
+﻿@model IEnumerable<byhands.Models.Bouquet>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="columns" class="columns-container">
+    <!-- container -->
+    <div class="container">
+        <div class="row">
+            <div id="left_column" class="sidebar col-lg-3 col-md-3">
+                @Html.Action("Categories", "Product")
+                @Html.Action("BestSellers", "Product")
+
+            </div><!-- end left_column -->
+            <div id="center_column" class="col-lg-9 col-md-9">
+
+
+                <div class="tab-content">
+                    <div class="tab-pane fade active in" id="tiva-grid">
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+                                <div class="type_block_product col-sp-12 col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                                    <div class="product-container">
+                                        <div class="left-block">
+                                            <div class="product-image-container">
+                                                <a class="product_img_link" href="@Url.Action("ProductDetail", "Product", new { id = item.BouquetId })" title="Queen rose - yellow">
+                                                    <img src="@Url.Content(item.ImageUrl)" alt="Queen rose - yellow" class="img-responsive image-no-effect" width="480" height="640">
+                                                </a>
+                                                <span class="label-new label">New</span>
+                                            </div>
+                                         
+                                        </div><!--end left block -->
+                                        <div class="right-block">
+                                            <div class="product-box">
+                                                <h5 class="name">
+                                                    <a class="product-name" href="page-detail.html" title="Queen rose - yellow">
+                                                        @item.BouquetName
+                                                    </a>
+                                                </h5>
+                                                <div class="content_price">
+                                                    <span class="price product-price">@item.Price</span>
+                                                </div>
+                                                <div class="product_comments clearfix">
+                                                    <div class="product-rating">
+                                                        <div class="star_content">
+                                                            <div class="star star_on"></div>
+                                                            <div class="star star_on"></div>
+                                                            <div class="star star_on"></div>
+                                                            <div class="star star_on"></div>
+                                                            <div class="star star_on"></div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- end product_comments -->
+                                            </div><!--end right block -->
+                                        </div>
+                                    </div><!-- end product-container-->
+                                </div>}
+                            <!-- end type_block_product -->
+                        </div><!-- end row -->
+                    </div><!-- end tiva-grid -->
+                </div>
+                <div class="content_sortPagiBar bottom clearfix">
+                    <nav>
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true"><i class="fa fa-angle-left"></i></span>
+                                </a>
+                            </li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li class="truncate"><span>...</span></li>
+                            <li><a href="#">12</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true"><i class="fa fa-angle-right"></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div><!-- end center_column -->
+        </div>
+    </div> <!-- end container -->
+</div><!--end columns-->

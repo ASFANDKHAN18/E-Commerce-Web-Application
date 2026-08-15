@@ -1,0 +1,79 @@
+﻿@model List<byhands.Models.Order>
+
+@{
+    ViewBag.Title = "My Orders";
+}
+
+<div id="columns" class="columns-container">
+    <div class="container">
+
+        <h3 class="page-heading">My Orders</h3>
+
+        <div class="table-responsive">
+
+            <table class="table table-bordered shop_tablecart">
+
+                <thead>
+                    <tr>
+                        <th class="text-center">Order ID</th>
+                        <th>Date</th>
+                        <th class="text-right">Total Amount</th>
+                        <th class="text-center">Status</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @if (!Model.Any())
+                    {
+                        <tr>
+                            <td colspan="5" class="text-center">
+                                No orders found 😔
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+
+                                <td>
+                                    <a href="@Url.Action("Orderdetail","Myorder", new { id = item.OrderId })">
+                                        #@item.OrderId
+                                    </a>
+                                </td>
+                                <td>
+                                    @(item.OrderDate.HasValue ? item.OrderDate.Value.ToString("dd MMM yyyy") : "")
+                                </td>
+
+                                <td class="text-right">
+                                    Rs @item.TotalAmount
+                                </td>
+
+                                <td class="text-center">
+                                    <span class="label label-success">
+                                        @item.Status
+                                    </span>
+                                </td>
+
+                                <td class="text-center">
+                                    <a href="@Url.Action("Orderdetail","Myorder", new { id = item.OrderId })"
+                                       class="btn btn-primary btn-sm">
+                                        View Details
+                                    </a>
+                                </td>
+
+                            </tr>
+                        }
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+</div>

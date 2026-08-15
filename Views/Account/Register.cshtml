@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+}
+
+<div id="columns" class="columns-container">
+    <!-- container -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                <form action="@Url.Action("Register","Account")" method="post"
+                      class="form-horizontal box panel panel-default">
+
+                    <h3 class="panel-heading">Create an account</h3>
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="alert alert-danger">
+                            @ViewBag.Error
+                        </div>
+                    }
+                    <div class="form_content panel-body clearfix">
+                        <div class="form-group required">
+                            <div class="col-lg-12">
+                                <label for="Username">Username <sup>*</sup></label>
+                                <input type="text" name="Username" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <div class="col-lg-12">
+                                <label for="FullName">FullName <sup>*</sup></label>
+                                <input type="text" name="FullName" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <div class="col-lg-12">
+                                <label for="Email">Email<sup>*</sup></label>
+                                <input type="email" name="Email" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <div class="col-lg-12">
+                                <label for="Password">Password <sup>*</sup></label>
+                                <input type="password" name="Password" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <div class="col-lg-12">
+                                <label for="Phone">Phone <sup>*</sup></label>
+                                <input type="text" name="Phone" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <div class="col-lg-12">
+                                <label for="Address">Address <sup>*</sup></label>
+                                <input type="text" name="Address" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <button type="submit" class="btn button btn-default">
+                                    Register
+                                </button>
+
+                                <p class="pull-right required">
+                                    <span><sup>*</sup>Required field</span>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </form><!--end form -->
+            </div>
+        </div>
+    </div> <!-- end container -->
+</div><!--end columns -->

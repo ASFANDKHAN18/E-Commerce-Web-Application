@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="21ee8ffa70ab49e3a8f40e51f421ed8d" Name="Diagram1" ZoomLevel="72">
+        <EntityTypeShape EntityType="byhandsModel.Admin" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="byhandsModel.Bouquet" Width="1.5" PointX="2.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="byhandsModel.Occasion" Width="1.5" PointX="0.875" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="byhandsModel.OrderDetail" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="byhandsModel.Order" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="byhandsModel.Recipient" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="byhandsModel.sysdiagram" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="byhandsModel.User" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <AssociationConnector Association="byhandsModel.FK__Bouquets__Occasi__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="byhandsModel.FK__OrderDeta__Bouqu__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="byhandsModel.FK__OrderDeta__Order__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="byhandsModel.FK__Orders__UserId__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="byhandsModel.FK__Recipient__Order__52593CB8" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

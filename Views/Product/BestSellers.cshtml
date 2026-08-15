@@ -1,0 +1,44 @@
+﻿@model IEnumerable<byhands.Models.Bouquet>
+
+<div id="block_featured_product" class="block">
+    <h4 class="title_block">Best sellers</h4>
+    <div class="block_content">
+
+        <ul class="product_list_block">
+            @foreach (var item in Model)
+            {
+            <li>
+                <div class="product-container media">
+                    <div class="product-image-container pull-left">
+                        <a class="product_img_link" href="@Url.Action("ProductDetail", "Product", new { id = item.BouquetId })" title="Bouquet rose">
+                            <img src="@Url.Content(item.ImageUrl)" alt="Bouquet rose" class="img-responsive" width="86" height="115">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <div class="product_comments clearfix">
+                            <div class="product-rating">
+                                <div class="star_content">
+                                    <div class="star star_on"></div>
+                                    <div class="star star_on"></div>
+                                    <div class="star star_on"></div>
+                                    <div class="star star_on"></div>
+                                    <div class="star star_on"></div>
+                                </div>
+                            </div>
+                        </div><!-- end product_comments -->
+                        <h5 class="name">
+                            <a class="product-name" href="page-detail.html" title="Bouquet rose">
+                               @item.BouquetName
+                            </a>
+                        </h5>
+                        <div class="content_price">
+                            <span class="price product-price">@item.Price</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            }
+
+        </ul>
+    </div>
+</div><!-- end block_featured_product -->

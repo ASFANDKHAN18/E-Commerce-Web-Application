@@ -1,0 +1,22 @@
+﻿@model IEnumerable<byhands.Models.Occasion>
+
+<div id="categories_block_left" class="block">
+    <h4 class="title_block">Categories</h4>
+    <div class="block_content">
+        <ul class="list-block">
+            <li>
+                <a href="@Url.Action("Index", "Product")">All Products</a>
+            </li>
+            @foreach (var cat in Model)
+            {
+                <li>
+                    <a href="@Url.Action("index", "Product", new { occasionId = cat.OccasionId })"
+                       title="@cat.OccasionName">
+                        @cat.OccasionName
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+

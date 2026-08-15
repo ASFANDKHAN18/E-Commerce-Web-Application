@@ -1,0 +1,29 @@
+﻿@model byhands.Models.Order
+@{
+    ViewBag.Title = "Success";
+}
+
+
+
+
+
+
+
+
+<div class="container">
+
+    <div class="alert alert-primary text-center">
+        <h2>🎉 Thank You! Your Order Has Been Placed</h2>
+        <p>Your flowers are being prepared ❤️</p>
+    </div>
+
+   
+
+    <div class="text-center mt-3">
+        <a href="@Url.Action("Index","Home")"
+           class="btn btn-primary">
+            Continue Shopping
+        </a>
+    </div>
+
+</div>

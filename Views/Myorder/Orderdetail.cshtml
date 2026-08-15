@@ -1,0 +1,139 @@
+﻿@model byhands.Models.Order
+@{
+    ViewBag.Title = "Orderdetail";
+}
+
+
+
+
+
+
+@{
+    ViewBag.Title = "Order Detail";
+
+    var shipping = 250;
+    var subtotal = Model.OrderDetails.Sum(x => x.Price * x.Quantity);
+    var grandtotal = subtotal + shipping;
+
+    var rec = Model.Recipients.FirstOrDefault();
+}
+
+<div id="columns" class="columns-container">
+    <div class="container">
+
+        <h3 class="page-heading">Order Details</h3>
+
+        <!-- ORDER INFO -->
+        <div class="panel panel-default">
+            <div class="panel-heading"><strong>Order Information</strong></div>
+            <div class="panel-body">
+                <p>
+                    <b>Order Date:</b> @(Model.OrderDate.HasValue ? Model.OrderDate.Value.ToString("dd MMM yyyy"): "")
+                </p>
+                <p><b>Total Amount:</b> Rs @grandtotal</p>
+            </div>
+        </div>
+
+
+        <!-- RECIPIENT INFO -->
+        @if (rec != null)
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading"><strong>Recipient Information</strong></div>
+                <div class="panel-body">
+                    <p><b>Name:</b> @rec.RecipientName</p>
+                    <p><b>Address:</b> @rec.Address</p>
+                    <p><b>Phone:</b> @rec.Phone</p>
+                    <p>
+                        <b>Delivery Date:</b>
+                        @(rec.DeliveryDate.HasValue
+            ? rec.DeliveryDate.Value.ToString("dd MMM yyyy")
+            : "Not Set")
+                    </p>
+                </div>
+            </div>
+        }
+
+
+        <!-- PRODUCTS TABLE (CART STYLE UI) -->
+
+        <div class="table-responsive">
+
+            <table class="table table-bordered">
+
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Description</th>
+                        <th class="text-right">Unit Price</th>
+                        <th class="text-center">Qty</th>
+                        <th class="text-right">Total</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var item in Model.OrderDetails)
+                    {
+                        <tr>
+
+                            <td style="width:120px;">
+                                <img src="@Url.Content(item.Bouquet.ImageUrl)"
+                                     class="img-responsive"
+                                     style="height:90px;object-fit:cover;" />
+                            </td>
+
+                            <td>
+                                @item.Bouquet.BouquetName
+                            </td>
+
+                            <td class="text-right">
+                                Rs @item.Price
+                            </td>
+
+                            <td class="text-center">
+                                @item.Quantity
+                            </td>
+
+                            <td class="text-right">
+                                Rs @(item.Price * item.Quantity)
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+                <tfoot>
+
+                    <tr>
+                        <td colspan="3"></td>
+                        <td class="text-right"><strong>Subtotal</strong></td>
+                        <td class="text-right">Rs @subtotal</td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3"></td>
+                        <td class="text-right"><strong>Shipping</strong></td>
+                        <td class="text-right">Rs @shipping</td>
+                    </tr>
+
+                    <tr style="font-size:18px;">
+                        <td colspan="3"></td>
+                        <td class="text-right"><strong>Grand Total</strong></td>
+                        <td class="text-right text-success"><strong>Rs @grandtotal</strong></td>
+                    </tr>
+
+                </tfoot>
+
+            </table>
+
+        </div>
+
+        <a href="@Url.Action("Myorder","Myorder")" class="btn btn-primary">
+            Back to My Orders
+        </a>
+
+    </div>
+</div>
+
